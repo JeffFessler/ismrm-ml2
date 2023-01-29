@@ -2,6 +2,10 @@
 
 https://github.com/JeffFessler/ismrm_ml2
 
+[![license][license-img]][license-url]
+[![docs-stable][docs-stable-img]][docs-stable-url]
+[![docs-dev][docs-dev-img]][docs-dev-url]
+
 Files related to Jeff Fessler's Machine Learning tutorial presentations
 at these conferences:
 - 2018 ISMRM Workshop on Machine Learning 2
@@ -37,3 +41,7 @@ See the "docs" button.
 
 - 04-denoise-1d
   (NN based denoising of 1D signals)
+
+[license-url]: LICENSE
+[docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
+[docs-stable-url]: https://JuliaImageRecon.github.io/Sinograms.jl/stable
