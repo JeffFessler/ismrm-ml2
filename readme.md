@@ -3,7 +3,6 @@
 https://github.com/JeffFessler/ismrm_ml2
 
 [![license][license-img]][license-url]
-[![docs-stable][docs-stable-img]][docs-stable-url]
 [![docs-dev][docs-dev-img]][docs-dev-url]
 
 Files related to Jeff Fessler's Machine Learning tutorial presentations
@@ -43,6 +42,7 @@ See the "docs" button.
   (NN based denoising of 1D signals)
 
 <!-- URLs -->
+[license-img]: https://img.shields.io/badge/license-MIT-brightgreen.svg
 [license-url]: LICENSE
-[docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
-[docs-stable-url]: https://JeffFessler.github.io/ismrm_ml2/stable
+[docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
+[docs-dev-url]: https://JeffFessler.github.io/ismrm_ml2/dev
