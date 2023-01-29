@@ -42,6 +42,7 @@ See the "docs" button.
 - 04-denoise-1d
   (NN based denoising of 1D signals)
 
+<!-- URLs -->
 [license-url]: LICENSE
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
 [docs-stable-url]: https://JuliaImageRecon.github.io/Sinograms.jl/stable
