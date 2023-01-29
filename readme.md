@@ -45,4 +45,4 @@ See the "docs" button.
 <!-- URLs -->
 [license-url]: LICENSE
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
-[docs-stable-url]: https://JuliaImageRecon.github.io/Sinograms.jl/stable
+[docs-stable-url]: https://JeffFessler.github.io/ismrm_ml2/stable
