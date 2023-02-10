@@ -43,9 +43,9 @@ isinteractive() ? jim(:prompt, true) : prompt(:draw);
 #=
 ## Load data
 
-Read the MNIST data for handwritten digits 0 and 1
+Read the MNIST data for some handwritten digits.
 This code will automatically download the data from web if needed
-and put it in a folder like: ~/.julia/datadeps/MNIST/
+and put it in a folder like: `~/.julia/datadeps/MNIST/`.
 =#
 if !@isdefined(data)
     digitn = (4, 9) # which digits to use
