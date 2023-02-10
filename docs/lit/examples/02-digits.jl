@@ -40,16 +40,18 @@ default(markersize=5, markerstrokecolor=:auto, label="")
 
 isinteractive() ? jim(:prompt, true) : prompt(:draw);
 
-# ## Load data
+#=
+## Load data
 
-# Read the MNIST data for handwritten digits 0 and 1
-# This code will automatically download the data from web if needed
-# and put it in a folder like: ~/.julia/datadeps/MNIST/
+Read the MNIST data for handwritten digits 0 and 1
+This code will automatically download the data from web if needed
+and put it in a folder like: ~/.julia/datadeps/MNIST/
+=#
 if !@isdefined(data)
     digitn = (4, 9) # which digits to use
     dataset = MNIST(Float32, :train)
     nrep = 1000
-    # function to extract the 1st 1000 examples of digit n:
+    ## function to extract the 1st 1000 examples of digit n:
     data = n -> dataset.features[:,:,findall(==(n), dataset.targets)[1:nrep]]
     data = 255 * cat(dims=4, data.(digitn)...)
     nx, ny, nrep, ndigit = size(data)
@@ -60,13 +62,6 @@ if !@isdefined(data)
     @show size(data)
 end
 
-
-# function to display mosaic of multiple images
-function imshow3(x) # todo cut
-    tmp = permutedims(x, [1, 3, 2])
-    tmp = reshape(tmp, :, ny)
-    return jim(1:size(tmp,1), 1:ny, tmp)
-end
 
 # Look at sorted and unsorted images to show (un)supervised
 seed!(0)
