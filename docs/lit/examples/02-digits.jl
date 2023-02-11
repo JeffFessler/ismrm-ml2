@@ -59,7 +59,7 @@ if !@isdefined(data)
     ny = size(data,2)
     d0 = data[:,:,:,1]
     d1 = data[:,:,:,2]
-    @show size(data)
+    size(data)
 end
 
 
