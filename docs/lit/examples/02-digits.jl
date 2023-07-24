@@ -30,7 +30,7 @@ using StatsBase: mean
 using MLDatasets: MNIST
 using Random: seed!, randperm
 using LaTeXStrings # pretty plot labels
-using Plots: default, gui, plot, scatter, plot!, scatter!
+using Plots: default, gui, plot, savefig, scatter, plot!, scatter!
 using MIRTjim: jim, prompt
 using InteractiveUtils: versioninfo
 default(markersize=5, markerstrokecolor=:auto, label="")
@@ -73,11 +73,13 @@ t0[:,:,6] = d0[:,:,222] # include one ambiguous case
 t1 = d1[:,:,1:nrow*ncol÷2]
 tmp = cat(t0, t1, dims=3)
 jim(tmp)
-#src savefig("02-digit-rand.pdf")
+## savefig("02-digit-sort.pdf")
 
 tmp = tmp[:,:,randperm(size(tmp,3))] # for unsupervised
-jim(tmp)
-#src savefig("02-digit-sort.pdf")
+pu = jim(tmp; xticks=false, yticks=false, colorbar=:none) # book
+## savefig("02-digit-rand.pdf")
+## savefig(pu, "data-4-9.pdf")
+gui(); throw()
 
 
 # Use some data for training, and some for test
