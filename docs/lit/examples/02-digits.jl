@@ -75,11 +75,11 @@ tmp = cat(t0, t1, dims=3)
 jim(tmp)
 ## savefig("02-digit-sort.pdf")
 
+#
 tmp = tmp[:,:,randperm(size(tmp,3))] # for unsupervised
-pu = jim(tmp; xticks=false, yticks=false, colorbar=:none) # book
+pu = jim(tmp; xticks=false, yticks=false, colorbar=:none); # book
 ## savefig("02-digit-rand.pdf")
 ## savefig(pu, "data-4-9.pdf")
-gui(); throw()
 
 
 # Use some data for training, and some for test
