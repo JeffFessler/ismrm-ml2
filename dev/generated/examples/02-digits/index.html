@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>02-digits · ismrm_ml2</title><meta name="title" content="02-digits · ismrm_ml2"/><meta property="og:title" content="02-digits · ismrm_ml2"/><meta property="twitter:title" content="02-digits · ismrm_ml2"/><meta name="description" content="Documentation for ismrm_ml2."/><meta property="og:description" content="Documentation for ismrm_ml2."/><meta property="twitter:description" content="Documentation for ismrm_ml2."/><meta property="og:url" content="https://JeffFessler.github.io/ismrm_ml2.jl/stable/generated/examples/02-digits/"/><meta property="twitter:url" content="https://JeffFessler.github.io/ismrm_ml2.jl/stable/generated/examples/02-digits/"/><link rel="canonical" href="https://JeffFessler.github.io/ismrm_ml2.jl/stable/generated/examples/02-digits/"/><script data-outdated-warner src="../../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../../assets/documenter.js"></script><script src="../../../search_index.js"></script><script src="../../../siteinfo.js"></script><script src="../../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../../assets/themeswap.js"></script><link href="../../../assets/custom.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../../../">ismrm_ml2</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../../">Home</a></li><li><span class="tocitem">Examples</span><ul><li><a class="tocitem" href="../01-overview/">01-overview</a></li><li class="is-active"><a class="tocitem" href>02-digits</a><ul class="internal"><li><a class="tocitem" href="#Basic-Introduction-to-Machine-Learning:-02-digits"><span>Basic Introduction to Machine Learning: 02-digits</span></a></li><li><a class="tocitem" href="#Hand-written-digit-classification"><span>Hand-written digit classification</span></a></li><li><a class="tocitem" href="#Load-data"><span>Load data</span></a></li><li><a class="tocitem" href="#How-well-do-the-first-left-singular-vectors-separate-the-two-classes?"><span>How well do the first left singular vectors separate the two classes?</span></a></li><li><a class="tocitem" href="#Classify-test-digits-based-on-nearest-subspace"><span>Classify test digits based on nearest subspace</span></a></li></ul></li><li><a class="tocitem" href="../03-flux-ring2/">03-flux-ring2</a></li><li><a class="tocitem" href="../04-denoise-1d/">04-denoise-1d</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Examples</a></li><li class="is-active"><a href>02-digits</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>02-digits</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JeffFessler/ismrm_ml2" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JeffFessler/ismrm_ml2/blob/main/docs/lit/examples/02-digits.jl" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="02-digits"><a class="docs-heading-anchor" href="#02-digits">02-digits</a><a id="02-digits-1"></a><a class="docs-heading-anchor-permalink" href="#02-digits" title="Permalink"></a></h1><h2 id="Basic-Introduction-to-Machine-Learning:-02-digits"><a class="docs-heading-anchor" href="#Basic-Introduction-to-Machine-Learning:-02-digits">Basic Introduction to Machine Learning: 02-digits</a><a id="Basic-Introduction-to-Machine-Learning:-02-digits-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Introduction-to-Machine-Learning:-02-digits" title="Permalink"></a></h2><h2 id="Hand-written-digit-classification"><a class="docs-heading-anchor" href="#Hand-written-digit-classification">Hand-written digit classification</a><a id="Hand-written-digit-classification-1"></a><a class="docs-heading-anchor-permalink" href="#Hand-written-digit-classification" title="Permalink"></a></h2><ul><li>2018-10-23 Jeff Fessler, University of Michigan</li></ul><p>This page was generated from a single Julia file: <a href="https://github.com/JeffFessler/ismrm_ml2/blob/main/docs/lit/examples/02-digits.jl">02-digits.jl</a>.</p><p>In any such Julia documentation, you can access the source code using the &quot;Edit on GitHub&quot; link in the top right.</p><p>The corresponding notebook can be viewed in <a href="https://nbviewer.org/">nbviewer</a> here: <a href="https://nbviewer.org/github/JeffFessler/ismrm_ml2/tree/gh-pages/dev/generated/examples/02-digits.ipynb"><code>02-digits.ipynb</code></a>, and opened in <a href="https://mybinder.org/">binder</a> here: <a href="https://mybinder.org/v2/gh/JeffFessler/ismrm_ml2/gh-pages?filepath=dev/generated/examples/02-digits.ipynb"><code>02-digits.ipynb</code></a>.</p><h3 id="Setup"><a class="docs-heading-anchor" href="#Setup">Setup</a><a id="Setup-1"></a><a class="docs-heading-anchor-permalink" href="#Setup" title="Permalink"></a></h3><p>Packages needed here.</p><pre><code class="language-julia hljs">using LinearAlgebra: norm, svd
+using StatsBase: mean
+using MLDatasets: MNIST
+using Random: seed!, randperm
+using LaTeXStrings # pretty plot labels
+using Plots: default, gui, plot, savefig, scatter, plot!, scatter!
+using MIRTjim: jim, prompt
+using InteractiveUtils: versioninfo
+default(markersize=5, markerstrokecolor=:auto, label=&quot;&quot;)</code></pre><p>The following line is helpful when running this file as a script; this way it will prompt user to hit a key after each figure is displayed.</p><pre><code class="language-julia hljs">isinteractive() ? jim(:prompt, true) : prompt(:draw);</code></pre><h2 id="Load-data"><a class="docs-heading-anchor" href="#Load-data">Load data</a><a id="Load-data-1"></a><a class="docs-heading-anchor-permalink" href="#Load-data" title="Permalink"></a></h2><p>Read the MNIST data for some handwritten digits. This code will automatically download the data from web if needed and put it in a folder like: <code>~/.julia/datadeps/MNIST/</code>.</p><pre><code class="language-julia hljs">if !@isdefined(data)
+    digitn = (4, 9) # which digits to use
+    isinteractive() || (ENV[&quot;DATADEPS_ALWAYS_ACCEPT&quot;] = true) # avoid prompt
+    dataset = MNIST(Float32, :train)
+    nrep = 1000
+    # function to extract the 1st 1000 examples of digit n:
+    data = n -&gt; dataset.features[:,:,findall(==(n), dataset.targets)[1:nrep]]
+    data = 255 * cat(dims=4, data.(digitn)...)
+    nx, ny, nrep, ndigit = size(data)
+    data = data[:,2:ny,:,:] # make images non-square to force debug
+    ny = size(data,2)
+    d0 = data[:,:,:,1]
+    d1 = data[:,:,:,2]
+    size(data)
+end</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">(28, 27, 1000, 2)</code></pre><p>Look at sorted and unsorted images to show (un)supervised</p><pre><code class="language-julia hljs">seed!(0)
+nrow = 4
+ncol = 6
+t0 = d0[:,:,1:nrow*ncol÷2]
+t0[:,:,6] = d0[:,:,222] # include one ambiguous case
+t1 = d1[:,:,1:nrow*ncol÷2]
+tmp = cat(t0, t1, dims=3)
+jim(tmp)
+# savefig(&quot;02-digit-sort.pdf&quot;)</code></pre><img src="f64ec39e.svg" alt="Example block output"/><pre><code class="language-julia hljs">tmp = tmp[:,:,randperm(size(tmp,3))] # for unsupervised
+pu = jim(tmp; xticks=false, yticks=false, colorbar=:none); # book
+# savefig(&quot;02-digit-rand.pdf&quot;)
+# savefig(pu, &quot;data-4-9.pdf&quot;)</code></pre><img src="f55e898d.svg" alt="Example block output"/><p>Use some data for training, and some for test</p><pre><code class="language-julia hljs">ntrain = 100
+ntest = nrep - ntrain
+train0 = d0[:,:,1:ntrain] # training data
+train1 = d1[:,:,1:ntrain]
+test0 = d0[:,:,(ntrain+1):end] # testing data
+test1 = d1[:,:,(ntrain+1):end];</code></pre><p>SVD for singular vectors and low-rank subspace approximation</p><pre><code class="language-julia hljs">u0 = svd(reshape(train0, nx*ny, :)).U
+u1 = svd(reshape(train1, nx*ny, :)).U
+r0 = 3 # selected ranks
+r1 = 3
+q0 = reshape(u0[:,1:r0], nx, ny, :)
+q1 = reshape(u1[:,1:r1], nx, ny, :)
+p0 = jim(q0; nrow = 1)
+p1 = jim(q1; nrow = 1)
+p01 = plot(p0, p1, layout=(2,1))</code></pre><img src="b1f632c9.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><h2 id="How-well-do-the-first-left-singular-vectors-separate-the-two-classes?"><a class="docs-heading-anchor" href="#How-well-do-the-first-left-singular-vectors-separate-the-two-classes?">How well do the first left singular vectors separate the two classes?</a><a id="How-well-do-the-first-left-singular-vectors-separate-the-two-classes?-1"></a><a class="docs-heading-anchor-permalink" href="#How-well-do-the-first-left-singular-vectors-separate-the-two-classes?" title="Permalink"></a></h2><pre><code class="language-julia hljs">regress = (data, u) -&gt; vec(mapslices(slice -&gt; u&#39;*slice[:], data, dims=(1,2)))
+l1 = &quot;$(digitn[1])&quot;
+l2 = &quot;$(digitn[2])&quot;
+plot(xlabel = l1 * &quot; U[:,1]&quot;, ylabel = l2 * &quot; U[:,1]&quot;, legend=:topleft)
+scatter!(regress(train0, u0[:,1]), regress(train0, u1[:,1]), label=l1)
+scatter!(regress(train1, u0[:,1]), regress(train1, u1[:,1]), label=l2)</code></pre><img src="d4fc30c3.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><h2 id="Classify-test-digits-based-on-nearest-subspace"><a class="docs-heading-anchor" href="#Classify-test-digits-based-on-nearest-subspace">Classify test digits based on nearest subspace</a><a id="Classify-test-digits-based-on-nearest-subspace-1"></a><a class="docs-heading-anchor-permalink" href="#Classify-test-digits-based-on-nearest-subspace" title="Permalink"></a></h2><pre><code class="language-julia hljs">Q0 = reshape(q0, nx*ny, r0)
+Q1 = reshape(q1, nx*ny, r1);
+
+y0 = reshape(test0, nx*ny, :)
+y00 = y0 - Q0 * (Q0&#39; * y0)
+y01 = y0 - Q1 * (Q1&#39; * y0)
+correct0 = (mapslices(norm, y00, dims=1) .&lt; mapslices(norm, y01, dims=1))
+c0 = count(correct0) / ntest</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">0.7722222222222223</code></pre><pre><code class="language-julia hljs">y1 = reshape(test1, nx*ny, :)
+y10 = y1 - Q0 * (Q0&#39; * y1)
+y11 = y1 - Q1 * (Q1&#39; * y1)
+correct1 = (mapslices(norm, y10, dims=1) .&gt; mapslices(norm, y11, dims=1))
+c1 = count(correct1) / ntest</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">0.9311111111111111</code></pre><h3 id="If-I-had-more-time-I-would-show-CNN-based-classification-here..."><a class="docs-heading-anchor" href="#If-I-had-more-time-I-would-show-CNN-based-classification-here...">If I had more time I would show CNN-based classification here...</a><a id="If-I-had-more-time-I-would-show-CNN-based-classification-here...-1"></a><a class="docs-heading-anchor-permalink" href="#If-I-had-more-time-I-would-show-CNN-based-classification-here..." title="Permalink"></a></h3><h3 id="Reproducibility"><a class="docs-heading-anchor" href="#Reproducibility">Reproducibility</a><a id="Reproducibility-1"></a><a class="docs-heading-anchor-permalink" href="#Reproducibility" title="Permalink"></a></h3><p>This page was generated with the following version of Julia:</p><pre><code class="language-julia hljs">io = IOBuffer(); versioninfo(io); split(String(take!(io)), &#39;\n&#39;)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">12-element Vector{SubString{String}}:
+ &quot;Julia Version 1.10.0&quot;
+ &quot;Commit 3120989f39b (2023-12-25 18:01 UTC)&quot;
+ &quot;Build Info:&quot;
+ &quot;  Official https://julialang.org/ release&quot;
+ &quot;Platform Info:&quot;
+ &quot;  OS: Linux (x86_64-linux-gnu)&quot;
+ &quot;  CPU: 4 × AMD EPYC 7763 64-Core Processor&quot;
+ &quot;  WORD_SIZE: 64&quot;
+ &quot;  LIBM: libopenlibm&quot;
+ &quot;  LLVM: libLLVM-15.0.7 (ORCJIT, znver3)&quot;
+ &quot;  Threads: 1 on 4 virtual cores&quot;
+ &quot;&quot;</code></pre><p>And with the following package versions</p><pre><code class="language-julia hljs">import Pkg; Pkg.status()</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Status `~/work/ismrm_ml2/ismrm_ml2/docs/Project.toml`
+  [31c24e10] Distributions v0.25.107
+  [e30172f5] Documenter v1.2.1
+  [587475ba] Flux v0.14.9
+  [b964fa9f] LaTeXStrings v1.3.1
+  [98b081ad] Literate v2.16.1
+  [170b2178] MIRTjim v0.23.0
+  [eb30cadb] MLDatasets v0.7.14
+  [91a5bcdd] Plots v1.39.0
+  [2913bbd2] StatsBase v0.34.2
+  [1986cc42] Unitful v1.19.0
+  [ef84fa70] ismrm_ml2 v0.0.1 `~/work/ismrm_ml2/ismrm_ml2`
+  [b77e0a4c] InteractiveUtils
+  [37e2e46d] LinearAlgebra
+  [9a3f8284] Random</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../01-overview/">« 01-overview</a><a class="docs-footer-nextpage" href="../03-flux-ring2/">03-flux-ring2 »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.2.1 on <span class="colophon-date" title="Monday 22 January 2024 02:00">Monday 22 January 2024</span>. Using Julia version 1.10.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

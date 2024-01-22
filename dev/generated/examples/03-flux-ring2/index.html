@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>03-flux-ring2 · ismrm_ml2</title><meta name="title" content="03-flux-ring2 · ismrm_ml2"/><meta property="og:title" content="03-flux-ring2 · ismrm_ml2"/><meta property="twitter:title" content="03-flux-ring2 · ismrm_ml2"/><meta name="description" content="Documentation for ismrm_ml2."/><meta property="og:description" content="Documentation for ismrm_ml2."/><meta property="twitter:description" content="Documentation for ismrm_ml2."/><meta property="og:url" content="https://JeffFessler.github.io/ismrm_ml2.jl/stable/generated/examples/03-flux-ring2/"/><meta property="twitter:url" content="https://JeffFessler.github.io/ismrm_ml2.jl/stable/generated/examples/03-flux-ring2/"/><link rel="canonical" href="https://JeffFessler.github.io/ismrm_ml2.jl/stable/generated/examples/03-flux-ring2/"/><script data-outdated-warner src="../../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../../assets/documenter.js"></script><script src="../../../search_index.js"></script><script src="../../../siteinfo.js"></script><script src="../../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../../assets/themeswap.js"></script><link href="../../../assets/custom.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../../../">ismrm_ml2</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../../">Home</a></li><li><span class="tocitem">Examples</span><ul><li><a class="tocitem" href="../01-overview/">01-overview</a></li><li><a class="tocitem" href="../02-digits/">02-digits</a></li><li class="is-active"><a class="tocitem" href>03-flux-ring2</a><ul class="internal"><li><a class="tocitem" href="#Basic-Introduction-to-Machine-Learning:-03-flux-ring2"><span>Basic Introduction to Machine Learning: 03-flux-ring2</span></a></li><li><a class="tocitem" href="#Generate-(synthetic)-data"><span>Generate (synthetic) data</span></a></li><li><a class="tocitem" href="#Train-simple-MLP-model"><span>Train simple MLP model</span></a></li><li><a class="tocitem" href="#Train-while-validating"><span>Train while validating</span></a></li></ul></li><li><a class="tocitem" href="../04-denoise-1d/">04-denoise-1d</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Examples</a></li><li class="is-active"><a href>03-flux-ring2</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>03-flux-ring2</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JeffFessler/ismrm_ml2" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JeffFessler/ismrm_ml2/blob/main/docs/lit/examples/03-flux-ring2.jl" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="03-flux-ring2"><a class="docs-heading-anchor" href="#03-flux-ring2">03-flux-ring2</a><a id="03-flux-ring2-1"></a><a class="docs-heading-anchor-permalink" href="#03-flux-ring2" title="Permalink"></a></h1><h2 id="Basic-Introduction-to-Machine-Learning:-03-flux-ring2"><a class="docs-heading-anchor" href="#Basic-Introduction-to-Machine-Learning:-03-flux-ring2">Basic Introduction to Machine Learning: 03-flux-ring2</a><a id="Basic-Introduction-to-Machine-Learning:-03-flux-ring2-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Introduction-to-Machine-Learning:-03-flux-ring2" title="Permalink"></a></h2><h3 id="Illustrate-basic-artificial-NN-training-using-Julia&#39;s-Flux-library"><a class="docs-heading-anchor" href="#Illustrate-basic-artificial-NN-training-using-Julia&#39;s-Flux-library">Illustrate basic artificial NN training using Julia&#39;s Flux library</a><a id="Illustrate-basic-artificial-NN-training-using-Julia&#39;s-Flux-library-1"></a><a class="docs-heading-anchor-permalink" href="#Illustrate-basic-artificial-NN-training-using-Julia&#39;s-Flux-library" title="Permalink"></a></h3><ul><li>Jeff Fessler, University of Michigan</li><li>2018-10-18 Julia 1.0.1 original</li><li>2023-01-29 Julia 1.8.5 update</li></ul><p>This page was generated from a single Julia file: <a href="https://github.com/JeffFessler/ismrm_ml2/blob/main/docs/lit/examples/03-flux-ring2.jl">03-flux-ring2.jl</a>.</p><p>In any such Julia documentation, you can access the source code using the &quot;Edit on GitHub&quot; link in the top right.</p><p>The corresponding notebook can be viewed in <a href="https://nbviewer.org/">nbviewer</a> here: <a href="https://nbviewer.org/github/JeffFessler/ismrm_ml2/tree/gh-pages/dev/generated/examples/03-flux-ring2.ipynb"><code>03-flux-ring2.ipynb</code></a>, and opened in <a href="https://mybinder.org/">binder</a> here: <a href="https://mybinder.org/v2/gh/JeffFessler/ismrm_ml2/gh-pages?filepath=dev/generated/examples/03-flux-ring2.ipynb"><code>03-flux-ring2.ipynb</code></a>.</p><h3 id="Setup"><a class="docs-heading-anchor" href="#Setup">Setup</a><a id="Setup-1"></a><a class="docs-heading-anchor-permalink" href="#Setup" title="Permalink"></a></h3><p>Packages needed here.</p><pre><code class="language-julia hljs">using LinearAlgebra: norm
+using Random: seed!
+using LaTeXStrings # pretty plot labels
+import Flux # Julia package for deep learning
+using Flux: Dense, Chain, relu, params, Adam, throttle, mse
+using Plots: Plot, plot, plot!, scatter!, default, gui
+using MIRTjim: jim, prompt
+using InteractiveUtils: versioninfo
+
+default(markersize=5, markerstrokecolor=:auto, label=&quot;&quot;)
+default(legendfontsize=10, labelfontsize=12, tickfontsize=10)</code></pre><p>The following line is helpful when running this file as a script; this way it will prompt user to hit a key after each figure is displayed.</p><pre><code class="language-julia hljs">isinteractive() ? jim(:prompt, true) : prompt(:draw);</code></pre><h2 id="Generate-(synthetic)-data"><a class="docs-heading-anchor" href="#Generate-(synthetic)-data">Generate (synthetic) data</a><a id="Generate-(synthetic)-data-1"></a><a class="docs-heading-anchor-permalink" href="#Generate-(synthetic)-data" title="Permalink"></a></h2><p>Function to simulate data that cannot be linearly separated</p><pre><code class="language-julia hljs">function simdata(; n1 = 40, n2 = 120, σ1 = 0.8, σ2 = 2, r2 = 3)
+    data1 = σ1 * randn(2,n1)
+    rad2 = r2 .+ σ2*rand(1,n2)
+    ang2 = rand(1,n2) * 2π
+    data2 = [rad2 .* cos.(ang2); rad2 .* sin.(ang2)]
+    X = [data1 data2] # 2 × N = n1+n2
+    Y = [-ones(1,n1) ones(1,n2)] # 1 × N
+    @assert size(X,2) == size(Y,2)
+    return (X,Y)
+end;</code></pre><p>Scatter plot routine</p><pre><code class="language-julia hljs">function datasplit(X,Y)
+    data1 = X[:,findall(==(-1), vec(Y))]
+    data2 = X[:,findall(==(1), vec(Y))]
+    return (data1, data2)
+end;
+
+function plot_data(X,Y; kwargs...)
+    data1, data2 = datasplit(X,Y)
+    plot(xlabel=L&quot;x_1&quot;, ylabel=L&quot;x_2&quot;; kwargs...)
+    scatter!(data1[1,:], data1[2,:], color=:blue, label=&quot;class1&quot;)
+    scatter!(data2[1,:], data2[2,:], color=:red, label=&quot;class2&quot;)
+    plot!(xlim=[-1,1]*6, ylim=[-1,1]*6)
+    plot!(aspect_ratio=1, xtick=-6:6:6, ytick=-6:6:6)
+end;</code></pre><p>Training data</p><pre><code class="language-julia hljs">seed!(0)
+(Xtrain, Ytrain) = simdata()
+plot_data(Xtrain,Ytrain)</code></pre><img src="c9ef3c9e.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><p>Validation and testing data</p><pre><code class="language-julia hljs">(Xvalid, Yvalid) = simdata()
+(Xtest, Ytest) = simdata()
+
+p1 = plot_data(Xvalid, Yvalid; title=&quot;Validation&quot;)
+p2 = plot_data(Xtest, Ytest; title=&quot;Test&quot;)
+plot(p1, p2)</code></pre><img src="592aed9b.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><h2 id="Train-simple-MLP-model"><a class="docs-heading-anchor" href="#Train-simple-MLP-model">Train simple MLP model</a><a id="Train-simple-MLP-model-1"></a><a class="docs-heading-anchor-permalink" href="#Train-simple-MLP-model" title="Permalink"></a></h2><p>A <a href="https://en.wikipedia.org/wiki/Multilayer_perceptron">multilayer perceptron model</a> (MLP) consists of multiple fully connected layers.</p><p>Train a basic NN model with 1 hidden layer</p><pre><code class="language-julia hljs">if !@isdefined(state)
+    nhidden = 10 # neurons in hidden layer
+    model = Chain(Dense(2,nhidden,relu), Dense(nhidden,1))
+    loss3(model, x, y) = mse(model(x), y) # admittedly silly choice
+    iters = 10000
+    dataset = Base.Iterators.repeated((Xtrain, Ytrain), iters)
+    state = Flux.setup(Adam(), model)
+    Flux.train!(loss3, model, dataset, state)
+end;</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">┌ Warning: Layer with Float32 parameters got Float64 input.
+│   The input will be converted, but any earlier layers may be very slow.
+│   layer = Dense(2 =&gt; 10, relu)  # 30 parameters
+│   summary(x) = &quot;2×160 Matrix{Float64}&quot;
+└ @ Flux ~/.julia/packages/Flux/UsEXa/src/layers/stateless.jl:60</code></pre><p>Plot results after training</p><pre><code class="language-julia hljs">function display_decision_boundaries(
+    X, Y, model;
+    x1range = range(-1,1,101)*6, x2range = x1range, τ = 0.0,
+    kwargs...,
+)
+    data1,data2 = datasplit(X,Y)
+    D = [model([x1;x2])[1] for x1 in x1range, x2 in x2range]
+    jim(x1range, x2range, sign.(D.-τ); color=:grays, kwargs...)
+    scatter!(data1[1,:], data1[2,:], color = :blue, label = &quot;Class 1&quot;)
+    scatter!(data2[1,:], data2[2,:], color = :red, label = &quot;Class 2&quot;)
+    plot!(xlabel=L&quot;x_1&quot;, ylabel=L&quot;x_2&quot;)
+    plot!(xlim=[-1,1]*6, ylim=[-1,1]*6)
+    plot!(aspect_ratio=1, xtick=-6:6:6, ytick=-6:6:6)
+end;</code></pre><p>Examine classification accuracy</p><pre><code class="language-julia hljs">classacc(model, x, y::Number) = sign(model(x)[1]) == y
+classacc(model, x, y::AbstractArray) = classacc(model, x, y[1])
+function classacc(X, Y)
+    tmp = zip(eachcol(X), eachcol(Y))
+    tmp = count(xy -&gt; classacc(model, xy...), tmp)
+    tmp = tmp / size(Y,2) * 100
+    return round(tmp, digits=3)
+end
+
+lossXY = loss3(model, Xtrain, Ytrain)
+display_decision_boundaries(Xtrain, Ytrain, model)
+plot!(title = &quot;Train: MSE Loss = $(round(lossXY,digits=4)), &quot; *
+    &quot;Class=$(classacc(Xtrain, Ytrain)) %&quot;)</code></pre><img src="c46ca149.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><h2 id="Train-while-validating"><a class="docs-heading-anchor" href="#Train-while-validating">Train while validating</a><a id="Train-while-validating-1"></a><a class="docs-heading-anchor-permalink" href="#Train-while-validating" title="Permalink"></a></h2><p>Create a basic NN model with 1 hidden layer. This version evaluates performance every epoch for both the training data and validation data.</p><pre><code class="language-julia hljs">nhidden = 10 # neurons in hidden layer
+layer2 = Dense(2, nhidden, relu)
+layer3 = Dense(nhidden, 1)
+model = Chain(layer2, layer3)
+loss3(model, x, y) = mse(model(x), y)
+
+nouter = 80 # of outer iterations, for showing loss
+losstrain = zeros(nouter+1)
+lossvalid = zeros(nouter+1)
+
+iters = 100
+losstrain[1] = loss3(model, Xtrain, Ytrain)
+lossvalid[1] = loss3(model, Xvalid, Yvalid)
+
+for io in 1:nouter
+    # @show io
+    idataset = Base.Iterators.repeated((Xtrain, Ytrain), iters)
+    istate = Flux.setup(Adam(), model)
+    Flux.train!(loss3, model, idataset, istate)
+    losstrain[io+1] = loss3(model, Xtrain, Ytrain)
+    lossvalid[io+1] = loss3(model, Xvalid, Yvalid)
+    if (io ≤ 6) &amp;&amp; false # set to true to make images
+        display_decision_boundaries(Xtrain, Ytrain, model)
+        plot!(title=&quot;$(io*iters) epochs&quot;)
+        # savefig(&quot;ml-flux-$(io*iters).pdf&quot;)
+    end
+end
+
+loss_train = loss3(model, Xtrain, Ytrain)
+loss_valid = loss3(model, Xvalid, Yvalid)
+p1 = display_decision_boundaries(Xtrain, Ytrain, model;
+ title=&quot;Train:\nMSE Loss = $(round(loss_train,digits=4))\n&quot; *
+    &quot;Class=$(classacc(Xtrain, Ytrain)) %&quot;,
+)
+p2 = display_decision_boundaries(Xvalid, Yvalid, model;
+ title=&quot;Valid:\nMSE Loss = $(round(loss_valid,digits=4))\n&quot; *
+    &quot;Class=$(classacc(Xvalid, Yvalid)) %&quot;,
+)
+p12 = plot(p1, p2)</code></pre><img src="e3344215.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><p>Show MSE loss vs epoch</p><pre><code class="language-julia hljs">ivalid = findfirst(&gt;(0), diff(lossvalid))
+plot(xlabel=&quot;epoch/$(iters)&quot;, ylabel=&quot;RMSE loss&quot;, ylim=[0,1.05*maximum(losstrain)])
+plot!(0:nouter, sqrt.(losstrain), label=&quot;training loss&quot;, marker=:o, color=:green)
+plot!(0:nouter, sqrt.(lossvalid), label=&quot;validation loss&quot;, marker=:+, color=:violet)
+plot!(xticks = [0, ivalid, nouter])</code></pre><img src="b1896b74.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><p>Show response of (trained) first hidden layer</p><pre><code class="language-julia hljs">x1range = range(-1,1,31) * 6
+x2range = range(-1,1,33) * 6
+layer2data = [layer2([x1;x2])[n] for x1 = x1range, x2 = x2range, n in 1:nhidden]
+
+pl = Array{Plot}(undef, nhidden)
+for n in 1:nhidden
+    ptmp = jim(x1range, x2range, layer2data[:,:,n], color=:cividis,
+        xtick=-6:6:6, ytick=-6:6:6,
+    )
+    if n == 7
+        plot!(ptmp, xlabel=L&quot;x_1&quot;, ylabel=L&quot;x_2&quot;)
+    end
+    pl[n] = ptmp
+end
+plot(pl[1:9]...)</code></pre><img src="d8ee0f30.svg" alt="Example block output"/><pre><code class="language-julia hljs">prompt()</code></pre><h3 id="Reproducibility"><a class="docs-heading-anchor" href="#Reproducibility">Reproducibility</a><a id="Reproducibility-1"></a><a class="docs-heading-anchor-permalink" href="#Reproducibility" title="Permalink"></a></h3><p>This page was generated with the following version of Julia:</p><pre><code class="language-julia hljs">io = IOBuffer(); versioninfo(io); split(String(take!(io)), &#39;\n&#39;)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">12-element Vector{SubString{String}}:
+ &quot;Julia Version 1.10.0&quot;
+ &quot;Commit 3120989f39b (2023-12-25 18:01 UTC)&quot;
+ &quot;Build Info:&quot;
+ &quot;  Official https://julialang.org/ release&quot;
+ &quot;Platform Info:&quot;
+ &quot;  OS: Linux (x86_64-linux-gnu)&quot;
+ &quot;  CPU: 4 × AMD EPYC 7763 64-Core Processor&quot;
+ &quot;  WORD_SIZE: 64&quot;
+ &quot;  LIBM: libopenlibm&quot;
+ &quot;  LLVM: libLLVM-15.0.7 (ORCJIT, znver3)&quot;
+ &quot;  Threads: 1 on 4 virtual cores&quot;
+ &quot;&quot;</code></pre><p>And with the following package versions</p><pre><code class="language-julia hljs">import Pkg; Pkg.status()</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Status `~/work/ismrm_ml2/ismrm_ml2/docs/Project.toml`
+  [31c24e10] Distributions v0.25.107
+  [e30172f5] Documenter v1.2.1
+  [587475ba] Flux v0.14.9
+  [b964fa9f] LaTeXStrings v1.3.1
+  [98b081ad] Literate v2.16.1
+  [170b2178] MIRTjim v0.23.0
+  [eb30cadb] MLDatasets v0.7.14
+  [91a5bcdd] Plots v1.39.0
+  [2913bbd2] StatsBase v0.34.2
+  [1986cc42] Unitful v1.19.0
+  [ef84fa70] ismrm_ml2 v0.0.1 `~/work/ismrm_ml2/ismrm_ml2`
+  [b77e0a4c] InteractiveUtils
+  [37e2e46d] LinearAlgebra
+  [9a3f8284] Random</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../02-digits/">« 02-digits</a><a class="docs-footer-nextpage" href="../04-denoise-1d/">04-denoise-1d »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.2.1 on <span class="colophon-date" title="Monday 22 January 2024 02:00">Monday 22 January 2024</span>. Using Julia version 1.10.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
